@@ -14,6 +14,6 @@ def shop():
 def confirm():
     return "<p>Confirm</p>"
 
-@app.route("/Food")
+@app.route("/reminder")
 def food_info():
-    return "<p>Food page maybe</p>"
+    return "<p>Remind them to drink water</p>"
