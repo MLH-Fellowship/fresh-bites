@@ -6,7 +6,7 @@ app = Flask(__name__)
 def home():
     return "<p>Home</p>"
 
-@app.route("/shop")
+@app.route("/shop", methods=("GET","POST","PUT","DELETE"))
 def shop():
     return "<p>Shopping cart</p>"
 
