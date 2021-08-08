@@ -29,12 +29,16 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/shop", methods=("GET","POST","PUT","DELETE"))
+@app.route("/shop")
 def shop():
-    if "shopcart" not in session:
+    return render_template("shop.html")
+
+@app.route("/cart", methods=("GET","POST","PUT","DELETE"))
+def cart():
+    if "cart" not in session:
         flash("Your cart is empty")
     else:
-        items = session["shopcart"]
+        items = session["cart"]
         dict_of_items = {}
 
         total = 0
@@ -45,10 +49,6 @@ def shop():
                 dict_of_items[item.id]["qty"] += 1
             else:
                 dict_of_items[item.id] = {"qty":1, "name": item.common_name, "price": item.price}
-    return render_template("shop.html")
-
-@app.route("/cart")
-def cart():
     return render_template("cart.html")
 
 
