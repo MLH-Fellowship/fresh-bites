@@ -6,3 +6,11 @@ services:
     restart: always
     volumes:
       - .:/fresh-bytes
+
+  
+  db:
+    container_name: db
+    image: postgres
+    restart: always
+    env_file:
+      - .env
