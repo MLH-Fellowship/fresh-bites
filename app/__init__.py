@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, send_from_directory, request, redirect, session, flash
+from flask import Flask, render_template, send_from_directory, request, redirect, session, flash, jsonify, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from dotenv import load_dotenv
@@ -7,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 load_dotenv()
 app = Flask(__name__)
+app.secret_key = "secret key"
 app.config[
     "SQLALCHEMY_DATABASE_URI"
 ] = "postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{table}".format(
@@ -21,6 +22,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+
 # create class model for login/signup and cart
 
 
@@ -33,24 +35,116 @@ def home():
 def shop():
     return render_template("shop.html")
 
-@app.route("/cart", methods=("GET","POST","PUT","DELETE"))
-def cart():
-    if "cart" not in session:
-        flash("Your cart is empty")
-    else:
-        items = session["cart"]
-        dict_of_items = {}
-
-        total = 0
-        for item in items:
-            item = item.get_item_by_id(item)
-            total += item.price
-            if item.id in dict_of_items:
-                dict_of_items[item.id]["qty"] += 1
-            else:
-                dict_of_items[item.id] = {"qty":1, "name": item.common_name, "price": item.price}
+@app.route("/cart")
+def view_cart():
     return render_template("cart.html")
 
+@app.route("/cart/add", methods=("POST"))
+def add_to_cart():
+    cursor = None
+    try:
+        _quantity = int(request.form['quantity'])
+        _code = request.form['code']
+        #validate the received values
+        if _quantity and _code and request.method == "POST":
+            conn = postgreSQL_cart.connect()
+            cursor = conn.cursor(pypostgresql.cursors.DictCursor)
+            cursor.execute("SELECT * FROM product WHERE code=%s", _code)
+            row = cursor.fetchone()
+
+            itemArray = { row['code'] : {'name' : row['name'], 'code' : row['code'], 'quantity': _quantity, 'price': row['price'], 'image': row['image'], 'total_price': _quantity * row['price']}}
+
+            all_total_price = 0
+            all_total_quantity = 0
+
+            session.modified = True
+            if 'cart_item' in session:
+                if row['code'] in session['cart_item']:
+                    for key, value in session['cart_item'].items():
+                        if row['code'] == key:
+                            #session.modified = True
+                            #if session ['cart_item'][key]['quantity'] is not None:
+                            #   session['cart_item][key]['quantity'] = 0
+                            old_quantity = session['cart_item'][key]['quantity']
+                            total_quantity = old_quantity + _quantity
+                            session['cart_item'][key]['quantity'] = total_quantity
+                            session['cart_item'][key]['total_price'] = total_quantity * row['price']
+                else:
+                    session['cart_item'] = array_merge(session['cart_item'], itemArray)
+
+                for key, value in session['cart_item'].items():
+                    individual_quantity = int(session['cart_item'][key]['quantity'])
+                    individual_price = float(session['cart_item'][key]['total_price'])
+                    all_total_quantity = all_total_quantity + individual_quantity
+                    all_total_price = all_total_price + individual_price
+            else:
+                    session['cart_item'] = itemArray
+                    all_total_quantity = all_total_quantity + _quantity
+                    all_total_price = all_total_price + _quantity * row['price']
+            
+            session['all_total_quantity'] = all_total_quantity
+            session['all_total_price'] = all_total_price
+
+            return redirect(url_for('.products'))
+        
+        else:
+            return 'Error while adding item to cart'
+    except Exception as e:
+        print(e)
+    
+    finally:
+            cursor.close()
+            conn.close()
+
+@app.route("/empty")
+def empty_cart(item_id):
+    try:
+        session.clear()
+        return redirect(url_for('.products'))
+    except Exception as e:
+        print(e)
+    
+@app.route("delete/<string:code>")
+def delete_item(code):
+    try:
+        all_total_price = 0
+        all_total_quantity = 0
+        session.modified = True
+
+        for item in session['cart_item'].items():
+            if item[0] == code:
+                session['cart_item'].pop(item[0], None)
+                if 'cart_item' in session:
+                    for key, value in session['cart_item'].items():
+                        individual_quantity = int(session['cart_item'][key]['quantity'])
+                        individual_price = float(session['cart_item'][key]['total_price'])
+                        all_total_quantity = all_total_quantity + individual_quantity
+                        all_total_price = all_total_price + individual_price
+                break
+
+            if all_total_quantity == 0:
+                session.clear()
+            else:
+                session['all_total_quantity'] = all_total_quantity
+                session['all_total_price'] = all_total_price
+
+            # return redirect('/')
+            return redirect(url_for('.products'))
+    
+    except Exception as e:
+        print(e)
+
+def array_merge( first_array, second_array ):
+    if isinstance( first_array , list) and isinstance( second_array , list):
+        return first_array + second_array
+    elif isinstance( first_array , dict) and isinstance( second_array , dict):
+        return dict( list( first_array.items() ) + list( second_array.items() ) )    
+    elif isinstance( first_array , set) and isinstance( second_array , set):
+        return first_array.union( second_array )
+    return False
+
+# if __name__ == "__main__":
+#     app.run()
 
 @app.route("/confirm")
 def confirm():
