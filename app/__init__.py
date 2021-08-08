@@ -1,10 +1,10 @@
-from flask import Flask, request, session, render_template, g, redirect, url_for, flash 
+from flask import Flask, render_template, session, flash
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<p>Home</p>"
+    return render_template('index.html')
 
 @app.route("/shop", methods=("GET","POST","PUT","DELETE"))
 def shop():
@@ -22,12 +22,12 @@ def shop():
                 dict_of_items[item.id]["qty"] += 1
             else:
                 dict_of_items[item.id] = {"qty":1, "name": item.common_name, "price": item.price}
-    return "<p>Shopping cart</p>"
+    return render_template('shop.html')
+
+@app.route("/cart")
+def cart():
+    return render_template('cart.html')
 
 @app.route("/confirm")
 def confirm():
-    return "<p>Confirm</p>"
-
-@app.route("/reminder")
-def food_info():
-    return "<p>Remind them to drink water</p>"
+    return render_template('confirm.html')
