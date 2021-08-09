@@ -35,7 +35,18 @@ def home():
 
 @app.route("/shop")
 def shop():
-    return render_template("shop.html")
+    try:
+        conn = pgdb.connect()
+        cursor = conn.cursor(pgdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM product")
+        rows = cursor.fetchall()
+        return render_template("shop.html", shop=rows)
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
+    
 
 @app.route("/cart")
 def view_cart():
