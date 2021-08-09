@@ -1,9 +1,11 @@
-import os
+import os 
 from flask import Flask, render_template, send_from_directory, request, redirect, session, flash, jsonify, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
+
+import psycopg2, pgdb, pg
 
 load_dotenv()
 app = Flask(__name__)
@@ -47,8 +49,8 @@ def add_to_cart():
         _code = request.form['code']
         #validate the received values
         if _quantity and _code and request.method == "POST":
-            conn = postgreSQL_cart.connect()
-            cursor = conn.cursor(pypostgresql.cursors.DictCursor)
+            conn = pgdb.connect()
+            cursor = conn.cursor(pgdb.cursors.DictCursor)
             cursor.execute("SELECT * FROM product WHERE code=%s", _code)
             row = cursor.fetchone()
 
