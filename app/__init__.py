@@ -1,11 +1,11 @@
 import os 
-from flask import Flask, render_template, send_from_directory, request, redirect, session, flash, jsonify, url_for
+from flask import Flask, render_template, send_from_directory, request, redirect, session, flash, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 
-import psycopg2, pgdb, pg
+import psycopg2, pgdb #pg
 
 load_dotenv()
 app = Flask(__name__)
