@@ -28,7 +28,7 @@ migrate = Migrate(app, db)
 # create class model for login/signup and cart
 
 
-@app.route("/")
+@app.route("/home")
 def home():
     return render_template("index.html")
 
@@ -97,6 +97,7 @@ def add_to_cart():
     finally:
             cursor.close()
             conn.close()
+    return render_template("cart.html")
 
 @app.route("/empty", methods=["DELETE"])
 def empty_cart(item_id):
@@ -105,6 +106,7 @@ def empty_cart(item_id):
         return redirect(url_for('.products'))
     except Exception as e:
         print(e)
+    return render_template("home.html")
     
 @app.route("/delete/<string:code>", methods=["POST, PUT, DELETE"])
 def delete_item(code):
@@ -135,6 +137,7 @@ def delete_item(code):
     
     except Exception as e:
         print(e)
+    return render_template("cart.html")
 
 def array_merge( first_array, second_array ):
     if isinstance( first_array , list) and isinstance( second_array , list):

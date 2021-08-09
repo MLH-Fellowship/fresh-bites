@@ -1,24 +1,10 @@
-{% extends index.html %}
 
-<!-- Get Messages Flashed -->
-<div>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <ul class=flashes>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
-</div>
-<!-- End of Flash Messages Section -->
 
 <!-- Shoppping Cart -->
 <div id="shopping-cart">
-    <div class="txt-heading">Shopping Cart</div>
+    <div class="txt-heading"><h2>Shopping Cart</h2></div>
     {% if 'cart_item' in session %}
-        <a id="emptyButton" href="{{ url_for('.empty_cart') }}">Empty Cart</a>
+        <button><a id="emptyButton" href="{{ url_for('.empty_cart') }}">Empty Cart</a></button>
         <table class="table-cart" cellpadding="10" cellspacing="1">
             <tbody>
                 <tr>
@@ -58,37 +44,3 @@
     {% endif %}
 </div>
 <!-- End Shopping Cart -->
-
-<h2>Your Shopping Cart</h2>
-{% if cart.count <= 0 %}
-<h1>Your cart is empty</h1>
-{% else %}
-<div class="cart-gd">
-    {% for item in cart.items %}
-    <div class="cart-header" id="{{item.id}}">
-        <a href="#" class="deleteItem" data-item-id="{{item.id}}"></a>
-        <div class="cart-shelf-item">
-            <div class="cart-item cyc">
-                <img src="{{item.product.mainPhoto.url}}" class="img" alt="{{item.product.title}}">
-            </div>
-            <div class="item-info">
-                <h3><a href=#>{{ item.product.title }}</a></h3>
-                <div class="delivery">
-                    <p><span>Unit price: $</span><span>{{ item.product.price }}</span></p>
-                    <div class="clearfix"></div>
-                        <p><span>Quantity: </span> <span>{{ item.quantity }}</span></p>
-                    <div class="clearfix"></div>
-                        <p><span>Total price: $</span><span>{{ item.total }}</span></p>
-                    <div class="clearfix"></div>
-
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-    {% endfor %}
-    <div style="margin-top: 50px";style="text-align: right">
-        <a href="/confirm" class="confirm-button">Confirm Order</a>
-    </div>
-</div>
-{% endif %}
