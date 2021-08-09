@@ -106,7 +106,7 @@ def empty_cart(item_id):
     except Exception as e:
         print(e)
     
-@app.route("delete/<string:code>", methods=["POST, PUT, DELETE"])
+@app.route("/delete/<string:code>", methods=["POST, PUT, DELETE"])
 def delete_item(code):
     try:
         all_total_price = 0
