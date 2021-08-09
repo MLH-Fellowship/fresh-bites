@@ -98,7 +98,7 @@ def add_to_cart():
             cursor.close()
             conn.close()
 
-@app.route("/empty")
+@app.route("/empty", methods=("DELETE"))
 def empty_cart(item_id):
     try:
         session.clear()
@@ -106,7 +106,7 @@ def empty_cart(item_id):
     except Exception as e:
         print(e)
     
-@app.route("delete/<string:code>")
+@app.route("delete/<string:code>", methods="POST, PUT, DELETE")
 def delete_item(code):
     try:
         all_total_price = 0
