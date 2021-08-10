@@ -21,7 +21,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-#create class model for login/signup and cart
+# create class model for login/signup and cart
 
 
 @app.route("/")
@@ -42,6 +42,7 @@ def cart():
 @app.route("/confirm")
 def confirm():
     return render_template("confirm.html")
+
 
 @app.route("/health")
 def health():
