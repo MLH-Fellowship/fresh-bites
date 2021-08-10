@@ -1,11 +1,13 @@
-import os
+import os, pymysql
 from flask import Flask, render_template, send_from_directory, request, redirect, session, flash, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 
-import psycopg2, pgdb #pg
+from flask import mysql
+
+MySQL = mysql()
 
 import requests
 import json
@@ -45,8 +47,8 @@ def add_to_cart():
         _code = request.form['code']
         #validate the received values
         if _quantity and _code and request.method == "POST":
-            conn = pgdb.connect()
-            cursor = conn.cursor(pgdb.cursors.DictCursor)
+            conn = mysql.connect()
+            cursor = conn.cursor(pymysql.cursors.DictCursor)
             cursor.execute("SELECT * FROM product WHERE code=%s", _code)
             row = cursor.fetchone()
 
@@ -100,13 +102,9 @@ def add_to_cart():
 def shop():
     req = requests.get('https://api.spoonacular.com/recipes/complexSearch')
     data = json.loads(req.content)
-    #conn = pgdb.connect()
-    conn = psycopg2.connect("dbname='portfolio' user='admin' host='db' port='5432' password='supersecretpassword'")
-    cursor = conn.cursor(pgdb.cursors.DictCursor)
     try:
-        #conn = pgdb.connect()
-        print('works')
-        #cursor = conn.cursor(pgdb.cursors.DictCursor)
+        conn = mysql.connect()
+        cursor = conn.cursor(pymysql.cursors.DictCursor)
         cursor.execute("SELECT * FROM product")
         print('works too')
         rows = cursor.fetchall()
