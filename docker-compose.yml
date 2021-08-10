@@ -6,6 +6,8 @@ services:
     restart: always
     volumes:
       - .:/fresh-bytes
+    ports: 
+      - 5001:5000
 
   
   db:
