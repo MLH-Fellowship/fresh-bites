@@ -1,4 +1,4 @@
-import os 
+import os
 from flask import Flask, render_template, send_from_directory, request, redirect, session, flash, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -6,6 +6,9 @@ from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 
 import psycopg2, pgdb #pg
+
+import requests
+import json
 
 load_dotenv()
 app = Flask(__name__)
@@ -35,6 +38,8 @@ def home():
 
 @app.route("/shop")
 def shop():
+    req = requests.get('https://api.spoonacular.com/recipes/complexSearch')
+    data = json.loads(req.content)
     try:
         conn = pgdb.connect()
         cursor = conn.cursor(pgdb.cursors.DictCursor)
@@ -46,6 +51,7 @@ def shop():
     finally:
         cursor.close()
         conn.close()
+    return render_template('shop.html',data=data)
     
 
 @app.route("/cart")
