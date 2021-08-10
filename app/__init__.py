@@ -12,7 +12,7 @@ import json
 
 load_dotenv()
 app = Flask(__name__)
-app.secret_key = "secret key"
+# app.secret_key = "secret key"
 app.config[
     "SQLALCHEMY_DATABASE_URI"
 ] = "postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{table}".format(
@@ -26,37 +26,14 @@ app.config[
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
+cursor = None
 
 # create class model for login/signup and cart
 
 
-@app.route("/home")
+@app.route("/")
 def home():
     return render_template("index.html")
-
-
-@app.route("/shop")
-def shop():
-    req = requests.get('https://api.spoonacular.com/recipes/complexSearch')
-    data = json.loads(req.content)
-    try:
-        conn = pgdb.connect()
-        cursor = conn.cursor(pgdb.cursors.DictCursor)
-        cursor.execute("SELECT * FROM product")
-        rows = cursor.fetchall()
-        return render_template("shop.html", shop=rows)
-    except Exception as e:
-        print(e)
-    finally:
-        cursor.close()
-        conn.close()
-    return render_template('shop.html',data=data)
-    
-
-@app.route("/cart")
-def view_cart():
-    return render_template("cart.html")
 
 @app.route("/cart/add", methods=["POST"])
 def add_to_cart():
@@ -117,6 +94,35 @@ def add_to_cart():
             cursor.close()
             conn.close()
     return render_template("cart.html", data=data)
+
+
+@app.route("/shop")
+def shop():
+    req = requests.get('https://api.spoonacular.com/recipes/complexSearch')
+    data = json.loads(req.content)
+    #conn = pgdb.connect()
+    conn = psycopg2.connect("dbname='portfolio' user='admin' host='db' port='5432' password='supersecretpassword'")
+    cursor = conn.cursor(pgdb.cursors.DictCursor)
+    try:
+        #conn = pgdb.connect()
+        print('works')
+        #cursor = conn.cursor(pgdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM product")
+        print('works too')
+        rows = cursor.fetchall()
+        return render_template("shop.html", shop=rows)
+    except Exception as e:
+        print(e)
+    finally:
+        cursor.close()
+        conn.close()
+    return render_template('shop.html',data=data)
+    
+
+@app.route("/cart")
+def view_cart():
+    return render_template("cart.html")
+
 
 @app.route("/empty", methods=["DELETE"])
 def empty_cart(item_id):

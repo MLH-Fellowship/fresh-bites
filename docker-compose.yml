@@ -4,13 +4,17 @@ services:
     container_name: web
     build: .
     restart: always
+    ports: 
+      - 5001:5000
     volumes:
       - .:/fresh-bytes
 
   
   db:
     container_name: db
-    image: postgres
+    image: postgres:latest
     restart: always
+    ports:
+      - 5432:5432
     env_file:
       - .env
