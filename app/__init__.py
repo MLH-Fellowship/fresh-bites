@@ -60,6 +60,8 @@ def view_cart():
 
 @app.route("/cart/add", methods=["POST"])
 def add_to_cart():
+    req = requests.get('https://api.spoonacular.com/recipes/complexSearch')
+    data = json.loads(req.content)
     cursor = None
     try:
         _quantity = int(request.form['quantity'])
@@ -114,7 +116,7 @@ def add_to_cart():
     finally:
             cursor.close()
             conn.close()
-    return render_template("cart.html")
+    return render_template("cart.html", data=data)
 
 @app.route("/empty", methods=["DELETE"])
 def empty_cart(item_id):
@@ -127,6 +129,8 @@ def empty_cart(item_id):
     
 @app.route("/delete/<string:code>", methods=["POST, PUT, DELETE"])
 def delete_item(code):
+    req = requests.get('https://api.spoonacular.com/recipes/complexSearch')
+    data = json.loads(req.content)
     try:
         all_total_price = 0
         all_total_quantity = 0
@@ -154,7 +158,7 @@ def delete_item(code):
     
     except Exception as e:
         print(e)
-    return render_template("cart.html")
+    return render_template("cart.html", data=data)
 
 def array_merge( first_array, second_array ):
     if isinstance( first_array , list) and isinstance( second_array , list):
