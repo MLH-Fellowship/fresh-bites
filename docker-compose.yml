@@ -12,7 +12,7 @@ services:
   
   db:
     container_name: db
-    image: postgres
+    image: postgres:latest
     restart: always
     env_file:
       - .env

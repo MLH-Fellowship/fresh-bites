@@ -1,2 +1,27 @@
-<p>This is the Home page</p>
-<a href="/shop">Order</a>
+<!-- <p>This is the Home page</p>
+<a href="/shop">Order</a> -->
+
+<div class="container-fluid home-main">
+    <div class="rectangle"></div>
+    <div class="inner-home">
+        <div id="test">{% include 'navbar.html' %}</div>
+        <div>
+            <div class="text container">
+                <span class="health-title">Health?</span>
+                <p class="health-body">You don't have to starve</p>
+                <p class="health-body-2">anymore. We gotchu 🍎 </p>
+            </div>
+            <div class="girl">
+                <img src="{{url_for('static', filename='img/home.gif')}}" class="girl-img img-fluid" />
+            </div>
+            <div class="order-now button">
+                <a href="/shop">
+                    <button class="button order rounded-pill">Order Now!</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="vegetable">
+        <img src="{{url_for('static', filename='img/food.png')}}" class="food-img img-fluid" />
+    </div>
+</div>

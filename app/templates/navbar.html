@@ -1,3 +1,28 @@
-<!-- favicon and chat -->
-<p>This is navbar</p>
-<a href="/cart">Cart</a>
+<div>
+  <div class="icon-home">
+    <a href="/" class="icon-home-aref">
+      <img
+        src="{{ url_for('static',filename='img/icon.svg') }}"
+        class="icon-img"
+      />
+    </a>
+  </div>
+  <div class="cart-home">
+    <a href="/cart" class="cart-home-aref">
+      <img
+        src="{{ url_for('static',filename='img/cart.svg') }}"
+        class="cart-img"
+      />
+    </a>
+  </div>
+  <div class="register">
+    <a href="/" class="register">
+      <p>Register | </p>
+    </a>
+  </div>
+  <div class="login">
+    <a href="/" class="login">
+      <p>Login </p>
+    </a>
+  </div>
+</div>
