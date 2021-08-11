@@ -5,9 +5,9 @@ from flask_migrate import Migrate
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from flask import mysql
+from flaskext.mysql import MySQL
 
-MySQL = mysql()
+mysql = MySQL()
 
 import requests
 import json
