@@ -7,9 +7,9 @@ itsdangerous==2.0.1
 Jinja2==3.0.1
 Mako==1.1.4
 MarkupSafe==2.0.1
+mysql-connector-python==8.0.17
 psycopg2-binary==2.9.1
 python-dotenv==0.17.1
 six==1.16.0
 SQLAlchemy==1.4.20
 Werkzeug==2.0.1
-mysql-connector-python==8.0.17
