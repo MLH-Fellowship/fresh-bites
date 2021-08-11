@@ -48,7 +48,7 @@ cursor = None
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    return render_template("index.html")
 
 @app.route("/cart/add", methods=["POST"])
 def add_to_cart():
