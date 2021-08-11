@@ -40,6 +40,17 @@ top: 15vh;
 width: 30vw;
 height: 60vh;
 }
+.girl-gif {
+
+    position: absolute;
+    /* width: 299px;
+    height: 223px; */
+
+    right: 20vw;
+    top: 5vh;
+    width: 45vw;
+    height: 70vh;
+    }
 
 .inner-home {
     position: absolute;
