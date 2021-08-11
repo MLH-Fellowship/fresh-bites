@@ -1,2 +1,46 @@
-<p>This is confirmation</p>
-<a href="/shop">BAck to home</a>
+<!-- <p>This is confirmation</p>
+<a href="/shop">BAck to home</a> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmation</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+   
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/main.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container-fluid main-container">
+
+<div class="container-fluid home-main">
+    <div class="rectangle"></div>
+    <div class="inner-home">
+        <div id="test">{% include 'navbar.html' %}</div>
+        <div>
+            
+            <div class="girl">
+                <img src="{{url_for('static', filename='img/girl.gif')}}" class="girl-gif img-fluid" />
+            </div>
+            <div class="order-now button" style="margin: 40vh;">
+                <a href="/shop">
+                    <button class="button order rounded-pill" style="top: 70vh;margin: 2vh;margin-left: 30vh; width: fit-content; height: fit-content;">Back to Shop</button>
+                </a>
+            </div>
+        </div>
+    </div>
+   
+</div>
+    </div>
+    
+  </body>
+</html>
