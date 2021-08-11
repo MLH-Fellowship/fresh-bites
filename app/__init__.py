@@ -1,17 +1,18 @@
 import os
 from flask import Flask, render_template, send_from_directory, request, redirect
-'''
+
+"""
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-'''
+"""
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 
 load_dotenv()
 app = Flask(__name__)
-app.config['DATABASE'] = os.path.join(os.getcwd(), 'flask.frm')
-'''
+app.config["DATABASE"] = os.path.join(os.getcwd(), "flask.frm")
+"""
 app.config[
     "SQLALCHEMY_DATABASE_URI"
 ] = "postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{table}".format(
@@ -26,7 +27,7 @@ db.init_app(app)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-'''
+"""
 
 
 # create class model for login/signup and cart
