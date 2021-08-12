@@ -50,6 +50,8 @@ cursor = None
 def home():
     return render_template("index.html")
 
+@app.route("/apitest")
+
 @app.route("/cart/add", methods=["POST"])
 def add_to_cart():
     req = requests.get('https://api.spoonacular.com/recipes/complexSearch')
