@@ -148,7 +148,7 @@ def view_cart():
 def empty_cart(item_id):
     try:
         session.clear()
-        return redirect(url_for('.products'))
+        return redirect(url_for('/shop'))
     except Exception as e:
         print(e)
     return render_template("home.html")
