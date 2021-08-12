@@ -1,9 +1,13 @@
 import os, pymysql
-from flask import Flask, render_template, send_from_directory, request, redirect, session, flash, url_for
+from flask import Flask, render_template, send_from_directory, request, redirect, session, url_for
+
+"""
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+"""
 from dotenv import load_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
+from . import db
 
 from flaskext.mysql import MySQL
 
@@ -14,7 +18,8 @@ import json
 
 load_dotenv()
 app = Flask(__name__)
-# app.secret_key = "secret key"
+app.config["DATABASE"] = os.path.join(os.getcwd(), "flask.frm")
+"""
 app.config[
     "SQLALCHEMY_DATABASE_URI"
 ] = "postgresql+psycopg2://{user}:{passwd}@{host}:{port}/{table}".format(
@@ -25,10 +30,12 @@ app.config[
     table=os.getenv("POSTGRES_DB"),
 )
 
+db.init_app(app)
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-cursor = None
+"""
+
 
 # create class model for login/signup and cart
 
