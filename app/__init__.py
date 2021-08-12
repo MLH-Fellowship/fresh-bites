@@ -56,8 +56,7 @@ migrate = Migrate(app, db)
 @app.route("/")
 def home():
     return render_template("index.html")
-
-@app.route("/apitest")
+    
 
 @app.route("/cart/add", methods=["POST"])
 def add_to_cart():
