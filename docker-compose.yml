@@ -6,13 +6,29 @@ services:
     restart: always
     volumes:
       - .:/fresh-bytes
-    ports: 
-      - 5001:5000
 
-  
   db:
     container_name: db
     image: postgres:latest
     restart: always
     env_file:
       - .env
+
+  nginx:
+    container_name: nginx
+    image: jonasal/nginx-certbot:latest
+    restart: unless-stopped
+    env_file:
+      - ./nginx-certbot.env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - web
+
+volumes:
+  nginx_secrets:
+    
