@@ -1,5 +1,12 @@
 import os
-from flask import Flask, render_template, send_from_directory, request, redirect, jsonify
+from flask import (
+    Flask,
+    render_template,
+    send_from_directory,
+    request,
+    redirect,
+    jsonify,
+)
 
 """
 from flask_sqlalchemy import SQLAlchemy
