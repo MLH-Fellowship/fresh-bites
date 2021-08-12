@@ -19,6 +19,7 @@ venv/
 # docs/_build/
 .vscode
 __pycache__
+nginx-certbot.env
 
 # # Coverage reports
 # htmlcov/
