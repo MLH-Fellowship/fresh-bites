@@ -5,7 +5,7 @@ services:
     build: .
     restart: always
     volumes:
-      - .:/fresh-bytes
+      - .:/fresh-bites
 
   db:
     container_name: db
