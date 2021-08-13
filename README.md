@@ -26,12 +26,12 @@
 
 
 
+# Things to Note for Potential Contributors
 
+In order to be able to test your additions locally, you have to install Flask and other necessary python packages. Those packages are specified in requirements.txt, the basic steps for Flask are shown below (for installing packages, recycle Step 3):
 
-# Health Tracker and Food Shopping
-
-- python3 -m venv venv
-- . venv/bin/activate
-- pip3 install Flask
-- export FLASK_ENV=development
-- flask run
+- Step 1: python3 -m venv venv
+- Step 2: . venv/bin/activate
+- Step 3: pip3 install Flask
+- Step 4: export FLASK_ENV=development
+- Step 5: flask run
