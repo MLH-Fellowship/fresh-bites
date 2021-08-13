@@ -16,13 +16,19 @@
     </a>
   </div>
   <div class="register">
-    <a href="/" class="register">
-      <p>Register | </p>
+    {% if userinfo %}
+    <a href="/logout" class="register">
+        Welcome {{userinfo['nickname']}} | Logout
     </a>
+    {% else %}
+    <a href="/login" class="register">
+      <p>Login / SignUp</p>
+    </a>
+    {% endif %}
   </div>
-  <div class="login">
-    <a href="/" class="login">
+  <!-- <div class="login">
+    <a href="/login" class="login">
       <p>Login </p>
     </a>
-  </div>
+  </div> -->
 </div>
