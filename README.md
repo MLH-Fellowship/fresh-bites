@@ -15,7 +15,7 @@
     - [Water Tracker with Alert](#water-tracker)
 - [A Bit About the Code](#about-the-code)
     - [Technologies Used](#technologies-used)
-    - [Things to Note for Potential Contributors](#notes-to-potential-contrinutors)
+    - [Things to Note for Potential Contributors](#notes-to-potential-contributors)
 - [License](#license)
 - [Links](#links)
 
@@ -26,7 +26,7 @@
 
 
 
-# Things to Note for Potential Contributors
+# Things to Note for Potential Contributors (#notes-to-potential-contributors)
 
 In order to be able to test your additions locally, you have to install Flask and other necessary python packages. Those packages are specified in requirements.txt, the basic steps for Flask are shown below (for installing packages, recycle Step 3):
 
