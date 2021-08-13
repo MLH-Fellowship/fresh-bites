@@ -115,7 +115,10 @@ def cart():
 @app.route("/confirm")
 @requires_auth
 def confirm():
-    return render_template("confirm.html",userinfo=session.get("profile"),)
+    return render_template(
+        "confirm.html",
+        userinfo=session.get("profile"),
+    )
 
 
 @app.route("/health")
