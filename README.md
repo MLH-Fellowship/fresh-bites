@@ -15,7 +15,7 @@
     - [Water Tracker with Alert](#water-tracker-with-alert)
 - [A Bit About the Code](#a-bit-about-the-code)
     - [Technologies Used](#technologies-used)
-    - [Things to Note for Potential Contributors](#things-to-note-foro-potential-contributors)
+    - [Things to Note for Potential Contributors](#things-to-note-for-potential-contributors)
 - [License](#license)
 - [Links](#links)
 
