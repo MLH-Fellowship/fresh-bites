@@ -13,7 +13,7 @@
     - [Spoonacular API](#spoonacular-api)
 - [Planned Future Features](#planned-future-features)
     - [Water Tracker with Alert](#water-tracker-with-alert)
-- [About the Founders and Contributors](#about-the-founders-and-contributors)
+- [About Us](#about-us)
     - [Avi](#avi)
     - [Gabriel](#gabriel)
     - [Monika](#monika)
@@ -93,7 +93,9 @@ Below are some features we plan on implementing in the future.
 
 In order to be our healthiest selves, we humans require at least 80 fl. oz of water every day. However, because of our busy lives, we often lose track of this and often fall short of our water requirement because of it. Thus, we intend to implement a water tracker so that you can count how much water you drink in a day. Additionally, we plan to add an alert system to remind you at specific times throughout the day to drink a cup of water, making it easier to track and successfully attain the necessary water intake for you.
 
-## About the Founders and Contributors
+## About Us
+
+Below is a bit about the Founders/Initial Contributors to the Fresh Bites app.
 
 ### Avi
 
