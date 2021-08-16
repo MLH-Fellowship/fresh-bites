@@ -76,7 +76,7 @@ Additionally, we have implemented:
  - Nginx
  - SSL Certification for additional security (HTTPS)
  - Monitoring using Graphana 
- - for Login/Signup
+ - AUTH0 for Login/Signup
  - Docker to containerize different parts of the app (app, Nginx/SSL Certification, MySQL Database)
 
 ### Things to Note for Potential Contributors
