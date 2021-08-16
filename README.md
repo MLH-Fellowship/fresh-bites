@@ -80,5 +80,5 @@ In order to be able to test your additions locally, you have to install Flask an
 ## License
 
 ## Links
-[Fresh Bites Site](https://fresh-bites.tech/)
-[Site Repository](https://github.com/MLH-Fellowship/fresh-bites/)
+- [Fresh Bites Site](https://fresh-bites.tech/)
+- [Site Repository](https://github.com/MLH-Fellowship/fresh-bites/)
