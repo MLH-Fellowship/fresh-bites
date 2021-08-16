@@ -23,9 +23,15 @@
 
 ### What is Fresh Bites
 
+Fresh Bites is an app that we created to help people live their healthiest lives. Fresh Bites makes it easier to plan their meals and diets by allowing people to buy individual foods and the ingredients of said foods. This allows people greater control over what people put in their bodies. 
+
 ### Why did we create Fresh Bites
 
+We created Fresh Bites in order to allow people greater control over what people put into their bodies. If you read the ingredients section on the labels on common foods, you will see a number of ingredients you will not be able to pronounce. This is because they are not actual food ingredients but rather man-made chemical additives that often end up being harmful to our bodies over time. 
+
 ## Getting Started
+
+Below are some instructions on how to get started on Fresh Bites to begin living a healthier lifestyle. 
 
 ### Login/Signup
 
@@ -48,6 +54,18 @@
 ## A Bit about the Code
 
 ### Technologies Used
+
+On the Backend, we used Python with Flask to implement the logic of how each of our features work. We store the data using MySQL, which is a type of SQL Database. 
+
+On the Frontend, we have implemented HTML, CSS, JavaScript, and Bootstrap. 
+
+Additionally, we have implemented:
+ - CI/CD using GitHub Actions 
+ - Nginx
+ - SSL Certification for additional security (HTTPS)
+ - Monitoring using Graphana 
+ - for Login/Signup
+ - Docker to containerize different parts of the app (app, Nginx/SSL Certification, MySQL Database)
 
 ### Things to Note for Potential Contributors
 
