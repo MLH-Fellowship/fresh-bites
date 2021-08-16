@@ -1,4 +1,4 @@
-## Table of content
+## Table of contents
 
 - [Introduction](#introduction)
     - [What is Fresh Bites](#what-is-fresh-bites)
