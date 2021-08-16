@@ -82,4 +82,4 @@ In order to be able to test your additions locally, you have to install Flask an
 ## Links
 - [Fresh Bites Site](https://fresh-bites.tech/)
 - [Site Repository](https://github.com/MLH-Fellowship/fresh-bites/)
-- [Check out Spoonacular](https://spoonacular.com/)
+- [Check out Spoonacular!](https://spoonacular.com/)
