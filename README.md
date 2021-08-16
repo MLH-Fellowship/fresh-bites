@@ -35,9 +35,15 @@ Below are some instructions on how to get started on Fresh Bites to begin living
 
 ### Login/Signup
 
+In order to shop; add items to your cart; and confirm orders, you must create a user account. If you are not logged in, you will be unable to place any orders.
+
+You can create an account by...
+
 ### Additional Information
 
 ## Features
+
+Below is an explanation of some of the features we have available so far.
 
 ### Shopping Page
 
@@ -47,11 +53,17 @@ Below are some instructions on how to get started on Fresh Bites to begin living
 
 ### Spoonacular API
 
+We make use of the Spoonacular API, which gives us access to information on a ton of recipes for healthy and delicious foods, to power our app. 
+
 ## Planned Future Features 
+
+Below are some features we plan on implementing in the future. 
 
 ### Water Tracker with Alert
 
 ## A Bit about the Code
+
+Below is some information about what we used to create this app, which will aid anyone looking to contribute to this project or otherwise interested in what we did here. 
 
 ### Technologies Used
 
