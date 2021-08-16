@@ -13,6 +13,11 @@
     - [Spoonacular API](#spoonacular-api)
 - [Planned Future Features](#planned-future-features)
     - [Water Tracker with Alert](#water-tracker-with-alert)
+- [About the Founders and Contributors](#about-the-founders-and-contributors)
+    -[Avi](#avi)
+    -[Gabriel](#gabriel)
+    -[Monika](#monika)
+    -[Brandon](#brandon)
 - [A Bit About the Code](#a-bit-about-the-code)
     - [Technologies Used](#technologies-used)
     - [Things to Note for Potential Contributors](#things-to-note-for-potential-contributors)
@@ -21,25 +26,32 @@
 
 ## Introduction
 
+We are delighted to welcome you to our app [Fresh Bites](https://fresh-bites.tech)! Take your health and wellness into your own hands today!
+
 ### What is Fresh Bites
 
-Fresh Bites is an app that we created to help people live their healthiest lives. Fresh Bites makes it easier to plan their meals and diets by allowing people to buy individual foods and the ingredients of said foods. This allows people greater control over what people put in their bodies. 
+Fresh Bites is an app that we created to help people live their healthiest lives. Fresh Bites makes it easier to plan their diets and cook their meals by allowing people to buy individual foods and the ingredients of said foods. This allows people greater control over what people put in their bodies. 
 
 ### Why did we create Fresh Bites
 
-We created Fresh Bites in order to allow people greater control over what people put into their bodies. If you read the ingredients section on the labels on common foods, you will see a number of ingredients you will not be able to pronounce. This is because they are not actual food ingredients but rather man-made chemical additives that often end up being harmful to our bodies over time. 
+We created Fresh Bites in order to allow people greater control over what people put into their bodies. Alot of times, we just don't know what we are putting into our bodies, especially when so many common foods list ingredients that are not even food items. So we wanted to make it easier for people to plan healthier meals and diets for themselves and their loved ones. Thus, Fresh Bites was born. 
 
 ## Getting Started
 
-Below are some instructions on how to get started on Fresh Bites to begin living a healthier lifestyle. 
+Below are some instructions on how to get started on Fresh Bites and begin living a healthier lifestyle. 
 
 ### Login/Signup
 
-In order to shop; add items to your cart; and confirm orders, you must create a user account. If you are not logged in, you will be unable to place any orders.
+Befor you can shop or place any orders on Fresh Bites, you have to create and/or login to your Fresh Bites account. If you are not logged in, you will be unable to place any orders.
 
-You can create an account by...
+You can create an account by clicking on the Login/Signup tab of our fresh-bites.com Home page. Then, you can either login to your account:
+
+
+Or you can click on the signup tab at the bottom of the login window to create your account: 
 
 ### Additional Information
+
+Something else you might want to know is that you have to create an account to actually browse the items. This is to give early adopters and testers a head start in trying the fresh-bites app.
 
 ## Features
 
@@ -47,9 +59,27 @@ Below is an explanation of some of the features we have available so far.
 
 ### Shopping Page
 
+Our Shopping Page displays all of the products available for you to purchase. You can add foods and ingredients to your cart from here:
+
+
+
+Once you are done shopping, you can click on the little cart icon on the top right to access your shopping cart:
+
 ### Shopping Cart
 
+Once you have clicked the shopping cart page, you can review the items on your page. This will allow you to place your order as well as change the quantity of each item in your cart:
+
+
+
+
+Note: You must have items in your cart in order to access this page. If you do not have a cart in session, you will see this instead:
+
+
+
+
 ### Confirmation Page
+
+Once you have placed your order, you will see this lovely confirmation page. This confirms that we have received your order and that it will be on its way to your place of residence ASAP. 
 
 ### Spoonacular API
 
@@ -60,6 +90,18 @@ We make use of the Spoonacular API, which gives us access to information on a to
 Below are some features we plan on implementing in the future. 
 
 ### Water Tracker with Alert
+
+In order to be our healthiest selves, we humans require at least 80 fl. oz of water every day. However, because of our busy lives, we often lose track of this and often fall short of our water requirement because of it. Thus, we intend to implement a water tracker so that you can count how much water you drink in a day. Additionally, we plan to add an alert system to remind you at specific times throughout the day to drink a cup of water, making it easier to track and successfully attain the necessary water intake for you.
+
+## About the Founders and Contributors
+
+### Avi
+
+### Gabriel
+
+### Monika
+
+### Brandon
 
 ## A Bit about the Code
 
