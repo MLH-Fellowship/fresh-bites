@@ -1,4 +1,5 @@
 import os
+import requests
 from flask import (
     Flask,
     render_template,
@@ -59,7 +60,7 @@ def callback_handling():
 
 @app.route("/login")
 def login():
-    return auth0.authorize_redirect(redirect_uri="https://fresh-bites.tech/callback")
+    return auth0.authorize_redirect(redirect_uri="http://localhost:5000/callback")
 
 
 def requires_auth(f):
@@ -71,11 +72,6 @@ def requires_auth(f):
         return f(*args, **kwargs)
 
     return decorated
-
-
-# @app.route("/")
-# def home():
-#     return render_template("index.html")
 
 
 @app.route("/")
@@ -94,20 +90,33 @@ def logout():
     session.clear()
     # Redirect user to logout endpoint
     params = {
-        "returnTo": "https://fresh-bites.tech/",
+        "returnTo": "http://localhost:5000/",
         "client_id": os.getenv("CLIENT_ID"),
     }
     return redirect(auth0.api_base_url + "/v2/logout?" + urlencode(params))
 
 
-@app.route("/shop")
-@requires_auth
+@app.route("/shop", methods=['GET', 'POST'])
 def shop():
-    return render_template("shop.html")
+    url = "https://api.spoonacular.com/recipes/complexSearch?" + "apiKey=fb792615575548c5ae4a59c9df46183d"
+    querystring = {
+        "query": "salad", "offset": "0", "number": "50", "minCalories": "0", "maxCalories": "500", "minProtein": "0", "maxProtein": "100",
+        "minFat": "0", "maxFat": "100", "minCarbs": "0", "maxCarbs": "50"
+    }
+    headers = {
+        'apiKey': "fb792615575548c5ae4a59c9df46183d",
+    }
+    res = requests.request("GET", url, params=querystring)
+    print(res.json())
+    result = res.json().get('results')
+    return render_template("shop.html", res=result)
 
+
+@app.route("/foodinfo", methods=['GET', 'POST'])
+def foodinfo():
+    render_template('foodinfo.html')
 
 @app.route("/cart")
-@requires_auth
 def cart():
     return render_template("cart.html")
 
