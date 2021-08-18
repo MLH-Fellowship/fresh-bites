@@ -1,5 +1,5 @@
-<div>
-  <div class="icon-home">
+<div class="row navbar-wrapper">
+  <div class="col-2 icon-home">
     <a href="/" class="icon-home-aref">
       <img
         src="{{ url_for('static',filename='img/icon.svg') }}"
@@ -7,7 +7,36 @@
       />
     </a>
   </div>
-  <div class="cart-home">
+{% if res %}
+  <div class="col search-bar">
+    <div class="input-group rounded-pill" id="search-div">
+      <input
+        type="search"
+        class="form-control border-0"
+        placeholder="Search your munch.."
+        aria-label="Search"
+        aria-describedby="search-addon"
+      />
+      <button type="button" class="btn">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="col-3 register">
+    {% if userinfo %}
+    <a href="/logout" class="register">
+      Welcome {{userinfo['username']}} | Logout
+    </a>
+    {% else %}
+    <a href="/login" class="register">
+      <span>Login / SignUp</span>
+    </a>
+    {% endif %}
+  </div>
+
+  <div class="col-1 cart-home">
     <a href="/cart" class="cart-home-aref">
       <img
         src="{{ url_for('static',filename='img/cart.svg') }}"
@@ -15,17 +44,7 @@
       />
     </a>
   </div>
-  <div class="register">
-    {% if userinfo %}
-    <a href="/logout" class="register">
-        Welcome {{userinfo['username']}} | Logout
-    </a>
-    {% else %}
-    <a href="/login" class="register">
-      <p>Login / SignUp</p>
-    </a>
-    {% endif %}
-  </div>
+
   <!-- <div class="login">
     <a href="/login" class="login">
       <p>Login </p>

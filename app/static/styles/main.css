@@ -1,159 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@302&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rokkitt:wght@302&display=swap");
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .container-fluid {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .home-main {
-    height: 100vh;
-    width: 100%;
-    background-color: #7BE0AD;
+  height: 100vh;
+  width: 100%;
+  background-color: #7be0ad;
 }
 
 .rectangle {
-    position: absolute;
-    height: 70%;
-    width: 30%;
-    background-color: #AEE5D8;
-    
+  position: absolute;
+  height: 70%;
+  width: 30%;
+  background-color: #aee5d8;
 }
 .food-img {
-position: relative;
-width: 30vw;
-height: 25vh;
-transform: rotate(-0.04deg);
-top: 77vh;
-filter: drop-shadow(5px 5px 5px gray);
-
+  position: relative;
+  width: 30vw;
+  height: 25vh;
+  transform: rotate(-0.04deg);
+  top: 77vh;
+  filter: drop-shadow(5px 5px 5px gray);
 }
 .girl-img {
-
-position: absolute;
-right: 8vw;
-top: 15vh;
-width: 30vw;
-height: 60vh;
+  position: absolute;
+  right: 8vw;
+  top: 15vh;
+  width: 30vw;
+  height: 60vh;
 }
 .girl-gif {
-
-    position: absolute;
-    /* width: 299px;
+  position: absolute;
+  /* width: 299px;
     height: 223px; */
 
-    right: 20vw;
-    top: 5vh;
-    width: 45vw;
-    height: 70vh;
-    }
+  right: 20vw;
+  top: 5vh;
+  width: 45vw;
+  height: 70vh;
+}
 
 .inner-home {
-    position: absolute;
-    background-color: #fff;
-    height: 90%;
-    width: 80%;
-    left: 10%;
-    top: 5%;
-    border-radius: 5%;
-    filter: drop-shadow(0px 5px 5px gray);
-
+  position: absolute;
+  background-color: #fff;
+  height: 90%;
+  width: 80%;
+  left: 10%;
+  top: 5%;
+  border-radius: 5%;
+  filter: drop-shadow(0px 5px 5px gray);
 }
 
 .health-title {
-    text-align: center;
-    position: absolute;
-    top: 30%;
-    left: 23%;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 23%;
 }
 
-.health-title, .health-body, .health-body-2 {
-    font-family: 'Rokkitt', serif;
-    font-size:56px;
-    color: #595959;
-
+.health-title,
+.health-body,
+.health-body-2 {
+  font-family: "Rokkitt", serif;
+  font-size: 56px;
+  color: #595959;
 }
 .health-body {
-    position: absolute;
-    top: 38%;
-    left: 11%;
+  position: absolute;
+  top: 38%;
+  left: 11%;
 }
 .health-body-2 {
-    position: absolute;
-    top: 45%;
-    left: 11%;
+  position: absolute;
+  top: 45%;
+  left: 11%;
 }
 
 .order {
-    background-color: #A44A3F;
-    height: 5vh;
-    width: 8vw;
-    color: #E7E5E5;
-    position: absolute;
-    left: 23%;
-    bottom: 35%;
-    font-size:x-large;
-
-
+  background-color: #a44a3f;
+  height: 5vh;
+  width: 8vw;
+  color: #e7e5e5;
+  position: absolute;
+  left: 23%;
+  bottom: 35%;
+  font-size: x-large;
 }
 
 .order:hover {
-    filter: drop-shadow(0 5px 5px gray);
-
+  filter: drop-shadow(0 5px 5px gray);
 }
 
 .icon-img {
-position: fixed;
-width: 120px;
-left: 2.5%;
-top: 15px;
-z-index: 999;
+  position: fixed;
+  width: 120px;
+  left: 2.5%;
+  top: 15px;
+  z-index: 999;
 }
 
 .cart-img {
-    position: fixed;
-    width: 50px;
-    right: 2.5%;
-    top: 15px;
-    z-index: 999;
+  position: fixed;
+  width: 50px;
+  right: 2.5%;
+  top: 15px;
+  z-index: 999;
 }
 
 .register {
-    font-size: xx-large;
-    font-family: monospace;
-    color:#595959;
-    font-weight: bold;
-    position: fixed;
-    right: 25%;
-    top: 20px;
-    text-decoration: none;
-    z-index: 999;
-
+  font-size: xx-large;
+  font-family: monospace;
+  color: #595959;
+  font-weight: bold;
+  position: fixed;
+  right: 25%;
+  top: 20px;
+  text-decoration: none;
+  z-index: 999;
 }
 
 .register:hover {
-    text-decoration: none;
-    color: #A44A3F;
+  text-decoration: none;
+  color: #a44a3f;
 }
 
 .login {
-    font-size: xx-large;
-    font-family: monospace;
-    color:#595959;
-    font-weight: bold;
-    position: fixed;
-    right: 19%;
-    top: 20px;
-    text-decoration: none;
-    z-index: 999;
-
+  font-size: xx-large;
+  font-family: monospace;
+  color: #595959;
+  font-weight: bold;
+  position: fixed;
+  right: 19%;
+  top: 20px;
+  text-decoration: none;
+  z-index: 999;
 }
 
 .login:hover {
-    text-decoration: none;
-    color: #A44A3F;
+  text-decoration: none;
+  color: #a44a3f;
 }

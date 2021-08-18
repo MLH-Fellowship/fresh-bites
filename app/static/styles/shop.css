@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Rokkitt:wght@302&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.home-main {
+  width: 100vw;
+  background-color: #7be0ad;
+}
+
+.rectangle {
+  position: absolute;
+  height: 70%;
+  width: 30%;
+  background-color: #aee5d8;
+}
+
+.inner-home {
+  background-color: #fff;
+  /* height: 80%; */
+  width: 80%;
+  border-radius: 50px;
+  filter: drop-shadow(0px 5px 5px gray);
+  margin: auto;
+  margin-top:50px;
+  padding: 50px;
+}
+
+.icon-img {
+  width: 120px;
+}
+
+.cart-img {
+  width: 50px;
+}
+
+.register {
+  font-size: xx-large;
+  font-family: monospace;
+  color: #595959;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register:hover {
+  text-decoration: none;
+  color: #a44a3f;
+}
+
+.login {
+  font-size: xx-large;
+  font-family: monospace;
+  color: #595959;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login:hover {
+  text-decoration: none;
+  color: #a44a3f;
+}
+
+.search-bar {
+  width: 25vw;
+}
+
+input {
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+input,
+input::-webkit-input-placeholder {
+  font-size: 22px;
+  line-height: 3;
+}
+
+#search-div {
+  border: 2px black solid;
+}
+
+
+.navbar-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+#foood{
+  margin-top: 20px;
+}
