@@ -96,34 +96,53 @@ def logout():
     return redirect(auth0.api_base_url + "/v2/logout?" + urlencode(params))
 
 
-@app.route("/shop", methods=['GET', 'POST'])
+@app.route("/shop", methods=["GET", "POST"])
 def shop():
-    url1 = "https://api.spoonacular.com/recipes/complexSearch?" + "apiKey=fb792615575548c5ae4a59c9df46183d"
+    url1 = (
+        "https://api.spoonacular.com/recipes/complexSearch?"
+        + "apiKey=fb792615575548c5ae4a59c9df46183d"
+    )
     querystring1 = {
-        "query": "salad", "offset": "0", "number": "50", "minCalories": "0", "maxCalories": "500", "minProtein": "0", "maxProtein": "100",
-        "minFat": "0", "maxFat": "100", "minCarbs": "0", "maxCarbs": "50"
+        "query": "salad",
+        "offset": "0",
+        "number": "50",
+        "minCalories": "0",
+        "maxCalories": "500",
+        "minProtein": "0",
+        "maxProtein": "100",
+        "minFat": "0",
+        "maxFat": "100",
+        "minCarbs": "0",
+        "maxCarbs": "50",
     }
     headers1 = {
-        'apiKey': "fb792615575548c5ae4a59c9df46183d",
+        "apiKey": "fb792615575548c5ae4a59c9df46183d",
     }
     res1 = requests.request("GET", url1, params=querystring1)
     # print(res.json())
-    result1 = res1.json().get('results')
-    url2 = "https://api.spoonacular.com/food/ingredients/search?" + "apiKey=fb792615575548c5ae4a59c9df46183d"
+    result1 = res1.json().get("results")
+    url2 = (
+        "https://api.spoonacular.com/food/ingredients/search?"
+        + "apiKey=fb792615575548c5ae4a59c9df46183d"
+    )
     querystring2 = {
-        "query": "apple", "offset": "0", "number": "50", "addChildren": "true"
+        "query": "apple",
+        "offset": "0",
+        "number": "50",
+        "addChildren": "true",
     }
 
     res = requests.request("GET", url2, params=querystring2)
     print(res.json())
-    result2 = res.json().get('results')
-    
+    result2 = res.json().get("results")
+
     return render_template("shop.html", res=result1, res2=result2)
 
 
-@app.route("/foodinfo", methods=['GET', 'POST'])
+@app.route("/foodinfo", methods=["GET", "POST"])
 def foodinfo():
-    render_template('foodinfo.html')
+    render_template("foodinfo.html")
+
 
 @app.route("/cart")
 def cart():
