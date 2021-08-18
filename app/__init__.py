@@ -137,7 +137,9 @@ def shop():
     print(res.json())
     result2 = res.json().get("results")
 
-    return render_template("shop.html", res=result1, res2=result2, userinfo=session.get("profile"))
+    return render_template(
+        "shop.html", res=result1, res2=result2, userinfo=session.get("profile")
+    )
 
 
 @app.route("/foodinfo", methods=["GET", "POST"])
