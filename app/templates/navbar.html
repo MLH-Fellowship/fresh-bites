@@ -7,7 +7,7 @@
       />
     </a>
   </div>
-
+{% if res %}
   <div class="col search-bar">
     <div class="input-group rounded-pill" id="search-div">
       <input
@@ -22,6 +22,7 @@
       </button>
     </div>
   </div>
+  {% endif %}
 
   <div class="col-3 register">
     {% if userinfo %}

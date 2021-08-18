@@ -60,7 +60,7 @@ def callback_handling():
 
 @app.route("/login")
 def login():
-    return auth0.authorize_redirect(redirect_uri="http://fresh-bites/callback")
+    return auth0.authorize_redirect(redirect_uri="https://fresh-bites.tech/callback")
 
 
 def requires_auth(f):
@@ -90,13 +90,14 @@ def logout():
     session.clear()
     # Redirect user to logout endpoint
     params = {
-        "returnTo": "http://fresh-bites/",
+        "returnTo": "https://fresh-bites.tech/",
         "client_id": os.getenv("CLIENT_ID"),
     }
     return redirect(auth0.api_base_url + "/v2/logout?" + urlencode(params))
 
 
 @app.route("/shop", methods=["GET", "POST"])
+@requires_auth
 def shop():
     url1 = (
         "https://api.spoonacular.com/recipes/complexSearch?"
@@ -136,7 +137,7 @@ def shop():
     print(res.json())
     result2 = res.json().get("results")
 
-    return render_template("shop.html", res=result1, res2=result2)
+    return render_template("shop.html", res=result1, res2=result2, userinfo=session.get("profile"))
 
 
 @app.route("/foodinfo", methods=["GET", "POST"])
@@ -145,8 +146,9 @@ def foodinfo():
 
 
 @app.route("/cart")
+@requires_auth
 def cart():
-    return render_template("cart.html")
+    return render_template("cart.html", userinfo=session.get("profile"))
 
 
 @app.route("/confirm")
