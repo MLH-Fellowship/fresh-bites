@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="row g-5">
+    {% for item in res %}
+    <div class="col-4">
+      <div class="card">
+        <img src="{{ item.image }}" class="card-img-top" />
+        <div class="card-body">
+          <h5 class="card-text fw-bold font-monospace text-center">
+            {{ item.title }}
+          </h5>
+          {% for text in item.nutrition.nutrients %}
+          <p class="card-text">
+            {{ text.title }} : {{ text.amount }} {{ text.unit }}
+          </p>
+          {% endfor %}
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-secondary btn-lg">Add to Cart</button>
+            <a href="/foodinfo">
+              <button class="btn btn-info btn-lg" foodid="{{ item.id }}">
+                More Info
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

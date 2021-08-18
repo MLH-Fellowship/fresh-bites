@@ -1,4 +1,5 @@
 import os
+import requests
 from flask import (
     Flask,
     render_template,
@@ -59,7 +60,7 @@ def callback_handling():
 
 @app.route("/login")
 def login():
-    return auth0.authorize_redirect(redirect_uri="https://fresh-bites.tech/callback")
+    return auth0.authorize_redirect(redirect_uri="http://fresh-bites/callback")
 
 
 def requires_auth(f):
@@ -71,11 +72,6 @@ def requires_auth(f):
         return f(*args, **kwargs)
 
     return decorated
-
-
-# @app.route("/")
-# def home():
-#     return render_template("index.html")
 
 
 @app.route("/")
@@ -94,20 +90,61 @@ def logout():
     session.clear()
     # Redirect user to logout endpoint
     params = {
-        "returnTo": "https://fresh-bites.tech/",
+        "returnTo": "http://fresh-bites/",
         "client_id": os.getenv("CLIENT_ID"),
     }
     return redirect(auth0.api_base_url + "/v2/logout?" + urlencode(params))
 
 
-@app.route("/shop")
-@requires_auth
+@app.route("/shop", methods=["GET", "POST"])
 def shop():
-    return render_template("shop.html")
+    url1 = (
+        "https://api.spoonacular.com/recipes/complexSearch?"
+        + "apiKey=fb792615575548c5ae4a59c9df46183d"
+    )
+    querystring1 = {
+        "query": "salad",
+        "offset": "0",
+        "number": "50",
+        "minCalories": "0",
+        "maxCalories": "500",
+        "minProtein": "0",
+        "maxProtein": "100",
+        "minFat": "0",
+        "maxFat": "100",
+        "minCarbs": "0",
+        "maxCarbs": "50",
+    }
+    headers1 = {
+        "apiKey": "fb792615575548c5ae4a59c9df46183d",
+    }
+    res1 = requests.request("GET", url1, params=querystring1)
+    # print(res.json())
+    result1 = res1.json().get("results")
+    url2 = (
+        "https://api.spoonacular.com/food/ingredients/search?"
+        + "apiKey=fb792615575548c5ae4a59c9df46183d"
+    )
+    querystring2 = {
+        "query": "apple",
+        "offset": "0",
+        "number": "50",
+        "addChildren": "true",
+    }
+
+    res = requests.request("GET", url2, params=querystring2)
+    print(res.json())
+    result2 = res.json().get("results")
+
+    return render_template("shop.html", res=result1, res2=result2)
+
+
+@app.route("/foodinfo", methods=["GET", "POST"])
+def foodinfo():
+    render_template("foodinfo.html")
 
 
 @app.route("/cart")
-@requires_auth
 def cart():
     return render_template("cart.html")
 
