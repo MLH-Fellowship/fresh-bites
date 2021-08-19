@@ -11,6 +11,7 @@
     - [Shopping Cart](#shopping-cart)
     - [Confirmation Page](#confirmation-page)
     - [Spoonacular API](#spoonacular-api)
+    - [Deployed on AWS](#deployed-on-aws)
 - [Planned Future Features](#planned-future-features)
     - [Water Tracker with Alert](#water-tracker-with-alert)
 - [About Us](#about-us)
@@ -95,6 +96,13 @@ Once you have placed your order, you will see this lovely confirmation page. Thi
 ### Spoonacular API
 
 We make use of the Spoonacular API, which gives us access to information on a ton of recipes for healthy and delicious foods, to power our app. 
+
+### Deployed on AWS
+
+We have deployed our app via the cloud, more specifically using Amazon Web Services (AWS). Below is what that looks like:
+
+![AWS Instance Overview](/app/static/img/AWS-overview.png)
+![AWS Instance Details](/app/static/img/AWS-details.png)
 
 ## Planned Future Features 
 
