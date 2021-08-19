@@ -44,7 +44,10 @@ Below are some instructions on how to get started on Fresh Bites and begin livin
 
 Befor you can shop or place any orders on Fresh Bites, you have to create and/or login to your Fresh Bites account. If you are not logged in, you will be unable to place any orders.
 
-You can create an account by clicking on the Login/Signup tab of our fresh-bites.com Home page. Then, you can either login to your account:
+You can create an account by clicking on the Login/Signup tab of our fresh-bites.com Home page: 
+
+
+Then, you can either login to your account:
 
 
 Or you can click on the signup tab at the bottom of the login window to create your account: 
