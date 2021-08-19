@@ -26,7 +26,7 @@ app = Flask(__name__)
 
 oauth = OAuth(app)
 
-app.config["DATABASE"] = os.path.join(os.getcwd(), "flask.frm")
+#app.config["DATABASE"] = os.path.join(os.getcwd(), "flask.frm")
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 auth0 = oauth.register(
