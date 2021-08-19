@@ -52,8 +52,11 @@ You can create an account by clicking on the Login/Signup tab of our fresh-bites
 
 Then, you can either login to your account:
 
+![Login Form]()
 
 Or you can click on the signup tab at the bottom of the login window to create your account: 
+
+![Signup Form]()
 
 ### Additional Information
 
@@ -67,20 +70,22 @@ Below is an explanation of some of the features we have available so far.
 
 Our Shopping Page displays all of the products available for you to purchase. You can add foods and ingredients to your cart from here:
 
-
+![Shopping Page]()
 
 Once you are done shopping, you can click on the little cart icon on the top right to access your shopping cart:
+
+![Shopping Cart Button]()
 
 ### Shopping Cart
 
 Once you have clicked the shopping cart page, you can review the items on your page. This will allow you to place your order as well as change the quantity of each item in your cart:
 
-
+![Shopping Cart Page]()
 
 
 Note: You must have items in your cart in order to access this page. If you do not have a cart in session, you will see this instead:
 
-
+![Confirmation Page]()
 
 
 ### Confirmation Page
