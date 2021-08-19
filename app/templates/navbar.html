@@ -37,12 +37,13 @@
   </div>
 
   <div class="col-1 cart-home">
-    <a href="/cart" class="cart-home-aref">
+    <a href="#" class="cart-home-aref" id="cart">
       <img
         src="{{ url_for('static',filename='img/cart.svg') }}"
         class="cart-img"
       />
     </a>
+    {% include 'cart.html' %}
   </div>
 
   <!-- <div class="login">
