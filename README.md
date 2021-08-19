@@ -47,6 +47,8 @@ Befor you can shop or place any orders on Fresh Bites, you have to create and/or
 
 You can create an account by clicking on the Login/Signup tab of our fresh-bites.com Home page: 
 
+![Login/Signup Page](/Users/marilynbalkaransingh/Documents/3.3.7-group1/app/static/img/login-signup-button.png)
+
 
 Then, you can either login to your account:
 
