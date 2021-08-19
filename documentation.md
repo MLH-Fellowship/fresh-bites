@@ -159,7 +159,7 @@ def confirm():
         userinfo=session.get("profile"),
     )`
 
-# This route is the health and workflow check
+This route is the health and workflow check
 
 `@app.route("/health")
 def health():
