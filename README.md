@@ -104,6 +104,8 @@ We have deployed our app via the cloud, more specifically using Amazon Web Servi
 ![AWS Instance Overview](/app/static/img/AWS-overview.png)
 ![AWS Instance Details](/app/static/img/AWS-details.png)
 
+We set this up by attaching our AWS CentOS virtual machine to GitHub via GitHub Secrets. We entered the information necessary to make the connection between our AWS instance and our app, thus deploying our site to AWS.
+
 ## Planned Future Features 
 
 Below are some features we plan on implementing in the future. 
