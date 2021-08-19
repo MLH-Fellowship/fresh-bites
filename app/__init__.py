@@ -46,8 +46,9 @@ auth0 = oauth.register(
     },
 )
 
-# this creates the login page. Handles the info from the auth0 object, 
+# this creates the login page. Handles the info from the auth0 object,
 # plus the userinfo and profile. The profile is an object that includes user id and username
+
 
 @app.route("/callback")
 def callback_handling():
@@ -64,14 +65,18 @@ def callback_handling():
     }
     return redirect("/")
 
+
 # login route, returns the auth0 object via the callback route
+
 
 @app.route("/login")
 def login():
     return auth0.authorize_redirect(redirect_uri="https://fresh-bites.tech/callback")
 
+
 # This object makes sure that a user is logged in to their account
 # if not in session, user is redirected to the login page
+
 
 def requires_auth(f):
     @wraps(f)
@@ -92,7 +97,9 @@ def dashboard():
         userinfo=session.get("profile"),
     )
 
+
 # This route handles logging out
+
 
 @app.route("/logout")
 @requires_auth
@@ -106,7 +113,9 @@ def logout():
     }
     return redirect(auth0.api_base_url + "/v2/logout?" + urlencode(params))
 
+
 # This route handles the shopping page, where a user makes their purchase(s)
+
 
 @app.route("/shop", methods=["GET", "POST"])
 @requires_auth
@@ -131,7 +140,7 @@ def shop():
         "minCarbs": "0",
         "maxCarbs": "50",
     }
-    # brings in a secret key that allows the app to handle 
+    # brings in a secret key that allows the app to handle
     # requests
     headers1 = {
         "apiKey": "fb792615575548c5ae4a59c9df46183d",
@@ -154,29 +163,35 @@ def shop():
     }
 
     res = requests.request("GET", url2, params=querystring2)
-    #print(res.json())
+    # print(res.json())
     result2 = res.json().get("results")
 
     return render_template(
         "shop.html", res=result1, res2=result2, userinfo=session.get("profile")
     )
 
+
 # The route for the food information
+
 
 @app.route("/foodinfo", methods=["GET", "POST"])
 def foodinfo():
     render_template("foodinfo.html")
 
+
 # This route handles the shopping cart. It requires the user
 # to be logged in to view cart
+
 
 @app.route("/cart")
 @requires_auth
 def cart():
     return render_template("cart.html", userinfo=session.get("profile"))
 
+
 # The confirmation page after the order is confirmed, which
-# also requires the user to be logged in to confirm order. 
+# also requires the user to be logged in to confirm order.
+
 
 @app.route("/confirm")
 @requires_auth
@@ -186,7 +201,9 @@ def confirm():
         userinfo=session.get("profile"),
     )
 
+
 # This route is the health and workflow check
+
 
 @app.route("/health")
 def health():
