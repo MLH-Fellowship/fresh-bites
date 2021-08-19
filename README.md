@@ -159,8 +159,16 @@ Below is a bit about the Initial Contributors to the Fresh Bites app.
 
 ### Avi
 
+[Avi's GitHub](https://github.com/aviiiij)
+
 ### Gabriel
+
+[Gabriel's GitHub](https://github.com/gabriel-esco)
 
 ### Monika
 
+[Monika's GitHub](https://github.com/immonika)
+
 ### Brandon
+
+[Brandon's GitHub](https://github.com/bbalkaransingh23888)
