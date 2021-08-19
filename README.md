@@ -14,17 +14,17 @@
     - [Deployed on AWS](#deployed-on-aws)
 - [Planned Future Features](#planned-future-features)
     - [Water Tracker with Alert](#water-tracker-with-alert)
-- [About Us](#about-us)
-    - [Avi](#avi)
-    - [Gabriel](#gabriel)
-    - [Monika](#monika)
-    - [Brandon](#brandon)
 - [A Bit About the Code](#a-bit-about-the-code)
     - [Technologies Used](#technologies-used)
     - [Things to Note for Potential Contributors](#things-to-note-for-potential-contributors)
 - [Documentation](#documentation)
 - [License](#license)
 - [Links](#links)
+- [Contributors](#contributors)
+    - [Avi](#avi)
+    - [Gabriel](#gabriel)
+    - [Monika](#monika)
+    - [Brandon](#brandon)
 
 ## Introduction
 
@@ -114,18 +114,6 @@ Below are some features we plan on implementing in the future.
 
 In order to be our healthiest selves, we humans require at least 80 fl. oz of water every day. However, because of our busy lives, we often lose track of this and often fall short of our water requirement because of it. Thus, we intend to implement a water tracker so that you can count how much water you drink in a day. Additionally, we plan to add an alert system to remind you at specific times throughout the day to drink a cup of water, making it easier to track and successfully attain the necessary water intake for you.
 
-## About Us
-
-Below is a bit about the Founders/Initial Contributors to the Fresh Bites app.
-
-### Avi
-
-### Gabriel
-
-### Monika
-
-### Brandon
-
 ## A Bit about the Code
 
 Below is some information about what we used to create this app, which will aid anyone looking to contribute to this project or otherwise interested in what we did here. 
@@ -164,3 +152,15 @@ For more information on the specific functions on this app, [click here!](https:
 - [Fresh Bites Site](https://fresh-bites.tech/)
 - [Site Repository](https://github.com/MLH-Fellowship/fresh-bites/)
 - [Check out Spoonacular!](https://spoonacular.com/)
+
+## Contributors
+
+Below is a bit about the Initial Contributors to the Fresh Bites app.
+
+### Avi
+
+### Gabriel
+
+### Monika
+
+### Brandon

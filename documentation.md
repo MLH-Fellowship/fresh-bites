@@ -2,14 +2,14 @@
 
 This brings in Auth0 to make the user database.
 
-`oauth = OAuth(app)
+```oauth = OAuth(app)
 
 app.config["DATABASE"] = os.path.join(os.getcwd(), "flask.frm")
-app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")`
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")```
 
 The auth0 register object - handles user access tokens, id number, secret keys, and authorization
 
-`auth0 = oauth.register(
+```auth0 = oauth.register(
     "auth0",
     client_id=os.getenv("CLIENT_ID"),
     client_secret=os.getenv("CLIENT_SECRET"),
@@ -19,11 +19,11 @@ The auth0 register object - handles user access tokens, id number, secret keys, 
     client_kwargs={
         "scope": "openid profile email",
     },
-)`
+)```
 
 This creates the login page. It handles the information from the auth0 object, plus the userinfo and profile. The profile is an object that includes user id and username
 
-`@app.route("/callback")
+```@app.route("/callback")
 def callback_handling():
     auth0.authorize_access_token()
     resp = auth0.get("userinfo")
@@ -36,17 +36,17 @@ def callback_handling():
         "picture": userinfo["picture"],
         "username": userinfo["nickname"],
     }
-    return redirect("/")`
+    return redirect("/")```
 
 This is the login route, returns the auth0 object via the callback route
 
-`@app.route("/login")
+```@app.route("/login")
 def login():
-    return auth0.authorize_redirect(redirect_uri="https://fresh-bites.tech/callback")`
+    return auth0.authorize_redirect(redirect_uri="https://fresh-bites.tech/callback")```
 
 This object makes sure that a user is logged in to their account if not in session, user is redirected to the login page
 
-`def requires_auth(f):
+```def requires_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         if "profile" not in session:
@@ -64,10 +64,10 @@ def dashboard():
         "index.html",
         userinfo=session.get("profile"),
     )
-`
+```
 This route handles logging out
 
-`@app.route("/logout")
+```@app.route("/logout")
 @requires_auth
 def logout():
     # Clear session stored data
@@ -77,11 +77,11 @@ def logout():
         "returnTo": "https://fresh-bites.tech/",
         "client_id": os.getenv("CLIENT_ID"),
     }
-    return redirect(auth0.api_base_url + "/v2/logout?" + urlencode(params))`
+    return redirect(auth0.api_base_url + "/v2/logout?" + urlencode(params))```
 
 This route handles the shopping page, where a user makes their purchase(s)
 
-`@app.route("/shop", methods=["GET", "POST"])
+```@app.route("/shop", methods=["GET", "POST"])
 @requires_auth
 def shop():
     # brings in the recipes section of the spoonacular API
@@ -132,33 +132,33 @@ def shop():
 
     return render_template(
         "shop.html", res=result1, res2=result2, userinfo=session.get("profile")
-    )`
+    )```
 
 The route for the food information
 
-`@app.route("/foodinfo", methods=["GET", "POST"])
+```@app.route("/foodinfo", methods=["GET", "POST"])
 def foodinfo():
-    render_template("foodinfo.html")`
+    render_template("foodinfo.html")```
 
 This route handles the shopping cart. It requires the user to be logged in to view cart
 
-`@app.route("/cart")
+```@app.route("/cart")
 @requires_auth
 def cart():
-    return render_template("cart.html", userinfo=session.get("profile"))`
+    return render_template("cart.html", userinfo=session.get("profile"))```
 
 The confirmation page after the order is confirmed, which also requires the user to be logged in to confirm order. 
 
-`@app.route("/confirm")
+```@app.route("/confirm")
 @requires_auth
 def confirm():
     return render_template(
         "confirm.html",
         userinfo=session.get("profile"),
-    )`
+    )```
 
 This route is the health and workflow check
 
-`@app.route("/health")
+```@app.route("/health")
 def health():
-    return "Hello, This is a Health Check and also a workflow check"`
+    return "Hello, This is a Health Check and also a workflow check"```
