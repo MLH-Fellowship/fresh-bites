@@ -13,7 +13,8 @@ from flask import (
 from dotenv import load_dotenv, find_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.exceptions import HTTPException
-from . import db
+
+# from . import db
 from functools import wraps
 import json
 from os import environ as env
@@ -148,7 +149,6 @@ def foodinfo():
 
 
 @app.route("/cart")
-@requires_auth
 def cart():
     return render_template("cart.html", userinfo=session.get("profile"))
 
