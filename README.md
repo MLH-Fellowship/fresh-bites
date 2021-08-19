@@ -21,6 +21,7 @@
 - [A Bit About the Code](#a-bit-about-the-code)
     - [Technologies Used](#technologies-used)
     - [Things to Note for Potential Contributors](#things-to-note-for-potential-contributors)
+- [Documentation](#documentation)
 - [License](#license)
 - [Links](#links)
 
@@ -135,6 +136,10 @@ In order to be able to test your additions locally, you have to install Flask an
 - Step 3: pip3 install Flask
 - Step 4: export FLASK_ENV=development
 - Step 5: flask run
+
+## Documentation
+
+For more information on the specific functions on this app, [click here!](/Users/marilynbalkaransingh/Documents/3.3.7-group1/documentation.md)
 
 ## License
 
