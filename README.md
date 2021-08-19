@@ -11,6 +11,7 @@
     - [Shopping Cart](#shopping-cart)
     - [Confirmation Page](#confirmation-page)
     - [Spoonacular API](#spoonacular-api)
+    - [Deployed on AWS](#deployed-on-aws)
 - [Planned Future Features](#planned-future-features)
     - [Water Tracker with Alert](#water-tracker-with-alert)
 - [About Us](#about-us)
@@ -21,6 +22,7 @@
 - [A Bit About the Code](#a-bit-about-the-code)
     - [Technologies Used](#technologies-used)
     - [Things to Note for Potential Contributors](#things-to-note-for-potential-contributors)
+- [Documentation](#documentation)
 - [License](#license)
 - [Links](#links)
 
@@ -44,10 +46,18 @@ Below are some instructions on how to get started on Fresh Bites and begin livin
 
 Befor you can shop or place any orders on Fresh Bites, you have to create and/or login to your Fresh Bites account. If you are not logged in, you will be unable to place any orders.
 
-You can create an account by clicking on the Login/Signup tab of our fresh-bites.com Home page. Then, you can either login to your account:
+You can create an account by clicking on the Login/Signup tab of our fresh-bites.com Home page: 
 
+![Login/Signup Page](/app/static/img/login-signup-button.png)
+
+
+Then, you can either login to your account:
+
+![Login Form]()
 
 Or you can click on the signup tab at the bottom of the login window to create your account: 
+
+![Signup Form]()
 
 ### Additional Information
 
@@ -61,20 +71,22 @@ Below is an explanation of some of the features we have available so far.
 
 Our Shopping Page displays all of the products available for you to purchase. You can add foods and ingredients to your cart from here:
 
-
+![Shopping Page]()
 
 Once you are done shopping, you can click on the little cart icon on the top right to access your shopping cart:
+
+![Shopping Cart Button]()
 
 ### Shopping Cart
 
 Once you have clicked the shopping cart page, you can review the items on your page. This will allow you to place your order as well as change the quantity of each item in your cart:
 
-
+![Shopping Cart Page]()
 
 
 Note: You must have items in your cart in order to access this page. If you do not have a cart in session, you will see this instead:
 
-
+![Confirmation Page]()
 
 
 ### Confirmation Page
@@ -84,6 +96,15 @@ Once you have placed your order, you will see this lovely confirmation page. Thi
 ### Spoonacular API
 
 We make use of the Spoonacular API, which gives us access to information on a ton of recipes for healthy and delicious foods, to power our app. 
+
+### Deployed on AWS
+
+We have deployed our app via the cloud, more specifically using Amazon Web Services (AWS). Below is what that looks like:
+
+![AWS Instance Overview](/app/static/img/AWS-overview.png)
+![AWS Instance Details](/app/static/img/AWS-details.png)
+
+We set this up by attaching our AWS CentOS virtual machine to GitHub via GitHub Secrets. We entered the information necessary to make the connection between our AWS instance and our app, thus deploying our site to AWS.
 
 ## Planned Future Features 
 
@@ -132,6 +153,10 @@ In order to be able to test your additions locally, you have to install Flask an
 - Step 3: pip3 install Flask
 - Step 4: export FLASK_ENV=development
 - Step 5: flask run
+
+## Documentation
+
+For more information on the specific functions on this app, [click here!](https://github.com/MLH-Fellowship/fresh-bites/blob/readme.md-redo/documentation.md)
 
 ## License
 
