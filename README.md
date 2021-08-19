@@ -139,7 +139,7 @@ In order to be able to test your additions locally, you have to install Flask an
 
 ## Documentation
 
-For more information on the specific functions on this app, [click here!](/Users/marilynbalkaransingh/Documents/3.3.7-group1/documentation.md)
+For more information on the specific functions on this app, [click here!](https://github.com/MLH-Fellowship/fresh-bites/blob/readme.md-redo/documentation.md)
 
 ## License
 
