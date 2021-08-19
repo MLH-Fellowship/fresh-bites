@@ -13,7 +13,7 @@ from flask import (
 from dotenv import load_dotenv, find_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.exceptions import HTTPException
-from . import db
+# from . import db
 from functools import wraps
 import json
 from os import environ as env
@@ -26,7 +26,7 @@ app = Flask(__name__)
 
 oauth = OAuth(app)
 
-app.config["DATABASE"] = os.path.join(os.getcwd(), "flask.frm")
+# app.config["DATABASE"] = os.path.join(os.getcwd(), "flask.frm")
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 auth0 = oauth.register(
@@ -146,7 +146,6 @@ def foodinfo():
 
 
 @app.route("/cart")
-@requires_auth
 def cart():
     return render_template("cart.html", userinfo=session.get("profile"))
 
