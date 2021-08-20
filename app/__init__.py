@@ -119,7 +119,6 @@ def logout():
 
 
 @app.route("/shop", methods=["GET", "POST"])
-@requires_auth
 def shop():
     # brings in the recipes section of the spoonacular API
     # that allows people to search for recipes
