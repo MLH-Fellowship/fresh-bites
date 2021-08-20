@@ -13,6 +13,7 @@ from flask import (
 from dotenv import load_dotenv, find_dotenv
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.exceptions import HTTPException
+
 # from . import db
 from functools import wraps
 import json
@@ -136,7 +137,9 @@ def shop():
     print(res.json())
     result2 = res.json().get("results")
 
-    return render_template("shop.html", res=result1, res2=result2, userinfo=session.get("profile"))
+    return render_template(
+        "shop.html", res=result1, res2=result2, userinfo=session.get("profile")
+    )
 
 
 @app.route("/foodinfo", methods=["GET", "POST"])
