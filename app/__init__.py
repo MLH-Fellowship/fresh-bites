@@ -98,6 +98,7 @@ def logout():
 
 
 @app.route("/shop", methods=["GET", "POST"])
+@requires_auth
 def shop():
     url1 = (
         "https://api.spoonacular.com/recipes/complexSearch?"
@@ -142,12 +143,10 @@ def shop():
     )
 
 
-@app.route("/foodinfo", methods=["GET", "POST"])
-def foodinfo():
-    render_template("foodinfo.html")
 
 
 @app.route("/cart")
+@requires_auth
 def cart():
     return render_template("cart.html", userinfo=session.get("profile"))
 
