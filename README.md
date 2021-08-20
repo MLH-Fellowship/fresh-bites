@@ -12,6 +12,7 @@
     - [Confirmation Page](#confirmation-page)
     - [Spoonacular API](#spoonacular-api)
     - [Deployed on AWS](#deployed-on-aws)
+    - [Monitoring](#monitoring)
 - [Planned Future Features](#planned-future-features)
     - [Water Tracker with Alert](#water-tracker-with-alert)
 - [A Bit About the Code](#a-bit-about-the-code)
@@ -105,6 +106,18 @@ We have deployed our app via the cloud, more specifically using Amazon Web Servi
 ![AWS Instance Details](/app/static/img/AWS-details.png)
 
 We set this up by attaching our AWS CentOS virtual machine to GitHub via GitHub Secrets. We entered the information necessary to make the connection between our AWS instance and our app, thus deploying our site to AWS.
+
+### Monitoring
+
+We have implemented monitoring as well to make sure we can keep an eye on how our site is performing at all times. First, we added cadvisor in order to constantly have that information coming in at all times:
+
+![cadvisor](/app/static/img/cadvisor.png)
+
+Then, we added Grafana, in conjunction with Prometheus, in order to be able to save records of all our monitoring checks. This way, we can go back into previous records for any pertinent information, in case we have a problem come up that was dealt with previously: 
+
+![Graphana and Prometheus 1](/app/static/img/graphana-prometheus-1.png)
+
+![Graphana and Prometheus 2](/app/static/img/graphana-prometheus-2.png)
 
 ## Planned Future Features 
 
