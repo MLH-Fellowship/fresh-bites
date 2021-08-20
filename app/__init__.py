@@ -97,7 +97,6 @@ def logout():
 
 
 @app.route("/shop", methods=["GET", "POST"])
-@requires_auth
 def shop():
     url1 = (
         "https://api.spoonacular.com/recipes/complexSearch?"

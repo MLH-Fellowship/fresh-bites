@@ -1,7 +1,8 @@
-(function(){
- 
-    $("#cart").on("click", function() {
-      $(".shopping-cart").fadeToggle( "fast");
+$(document).ready(function(){
+    $("#liveToastBtn").click(function(){
+        $("#liveToast").toast('show');
     });
-    
-  })();
+});
+function toast() {
+    alert("Added to Cart!");
+  }

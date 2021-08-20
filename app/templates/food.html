@@ -14,8 +14,11 @@
           </p>
           {% endfor %}
           <div class="d-flex justify-content-between">
-            <button class="btn btn-secondary btn-lg">Add to Cart</button>
-            <a href="/foodinfo">
+            <button class="btn btn-secondary btn-lg" id="liveToastBtn" onclick="toast()">
+              Add to Cart
+            </button>
+
+            <a href="https://www.epicurious.com/recipes/food/views/tarragon-shallot-egg-salad-sandwiches-107974" target="_blank">
               <button class="btn btn-info btn-lg" foodid="{{ item.id }}">
                 More Info
               </button>
@@ -24,6 +27,20 @@
         </div>
       </div>
     </div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">Fresh Bites</strong>
+      <small>1 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Added To Cart!
+    </div>
+  </div>
+</div>
     {% endfor %}
   </div>
 </div>
+
