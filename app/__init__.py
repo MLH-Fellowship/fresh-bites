@@ -119,6 +119,7 @@ def logout():
 
 
 @app.route("/shop", methods=["GET", "POST"])
+@requires_auth
 def shop():
     # brings in the recipes section of the spoonacular API
     # that allows people to search for recipes
@@ -175,6 +176,7 @@ def shop():
 
 
 @app.route("/foodinfo", methods=["GET", "POST"])
+@requires_auth
 def foodinfo():
     render_template("foodinfo.html")
 
@@ -184,6 +186,7 @@ def foodinfo():
 
 
 @app.route("/cart")
+@requires_auth
 def cart():
     return render_template("cart.html", userinfo=session.get("profile"))
 
