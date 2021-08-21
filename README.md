@@ -161,6 +161,8 @@ For more information on the specific functions on this app, [click here!](https:
 
 ## License
 
+[License](https://github.com/MLH-Fellowship/fresh-bites/blob/master/LICENSE)
+
 ## Links
 - [Fresh Bites Site](https://fresh-bites.tech/)
 - [Site Repository](https://github.com/MLH-Fellowship/fresh-bites/)
